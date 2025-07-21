@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A</title>
-</head>
-<body>
- <h1> All Books Page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <title>A</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Books</h1>
+      <a href="/auth/sign-out">Sign out</a>
+      <a href="/books/new">Add a Book</a>
+
+      <ul>
+        <% foundBooks.forEach((book) => { %>
+        <li>
+          <strong>Book title:</strong> <%= book.title %>
+          <br />
+          <img src="<%= book.image %>" />
+          <br />
+          <strong>Category:</strong> <%= book.category %>
+          <br />
+          <strong>Description:</strong><%=book.description %>
+          <br />
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
 </html>
