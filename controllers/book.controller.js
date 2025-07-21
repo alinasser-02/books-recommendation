@@ -40,7 +40,16 @@ router.delete("/:bookId", isSignedIn, async (req, res) => {
     await foundBook.deleteOne();
     return res.redirect("/books");
   }
-  return res.send("only owner can delete");
+  return res.send("only owner can delete this book");
+});
+
+router.get("/:bookId/edit", isSignedIn, async (req, res) => {
+  const foundBook = await Book.findById(req.params.bookId).populate("user");
+  if(foundBook.user._id.equals(req.session.user._id))
+  {
+    return res.render('books/edit.ejs', {foundBook})
+  }
+     res.send("only owner can edit this book");
 });
 
 module.exports = router;
