@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    /> -->
+    
+<link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
 
     <link rel="stylesheet" href="../stylesheets/style.css" />
+
+
+    
     <title>A</title>
   </head>
   <body>
@@ -21,7 +26,8 @@
       <ul>
         <% foundBooks.forEach((book) => { %>
         <li>
-          <strong>Book title:</strong> <%= book.title %>
+         <strong>Book title:</strong> <br>
+         <a href="/books/<%= book._id %>">  <%= book.title %></a>
           <br />
           <img src="<%= book.image %>" />
           <br />

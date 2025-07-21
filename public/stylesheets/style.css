@@ -18,3 +18,7 @@ img{
   max-width: 200px;
   margin: 20px
 }
+
+a{
+  text-decoration: none;
+}

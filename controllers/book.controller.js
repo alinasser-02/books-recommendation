@@ -19,6 +19,6 @@ router.get("/", async (req, res) => {
 
 router.get("/:bookId", async (req, res) => {
   const foundBook = await Book.findById(req.params.bookId);
-  res.render('books/show.ejs',{})
+  res.render('books/show.ejs',{foundBook:foundBook})
 });
 module.exports = router;
