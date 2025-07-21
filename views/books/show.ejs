@@ -34,10 +34,14 @@
           action="/books/<%=foundBook._id%>?_method=DELETE"
           method="POST"
         >
-          <button class="delete-button" type="submit">
-            Delete <%= foundBook.name %>
+          <button type="submit">
+            Delete <%=foundBook.name %>
           </button>
         </form>
+        <button><a class="edit-link" href="/books/<%= foundBook._id %>/edit">
+        <div class="edit-text">Edit <%= foundBook.name %></div>
+    </a></button>
+</div>
       </div>
     </div>
   </body>
