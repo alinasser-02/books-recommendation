@@ -1,6 +1,7 @@
 require('dotenv').config({ quiet: true })
 const express = require('express')
 const app = express()
+const path = require("path");
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
@@ -28,9 +29,11 @@ app.use(session({
         mongoUrl: process.env.MONGODB_URI,
     })
 }))
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(passUserToView)
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     res.render('index.ejs', { title: 'my App'})
 })
 
