@@ -21,4 +21,9 @@ router.get("/:bookId", async (req, res) => {
   const foundBook = await Book.findById(req.params.bookId);
   res.render('books/show.ejs',{foundBook:foundBook})
 });
+
+router.delete('/:bookId', async (req,res)=>{
+await Book.findByIdAndDelete(req.params.bookId)
+res.redirect('/books')
+})
 module.exports = router;

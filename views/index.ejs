@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+
+
     <title><%= title %></title>
 </head>
 <body>
 <% if (user) { %>
 <h1>Welcome to the app, <%= user.username %>!</h1>
 <a href="/auth/sign-out">Sign out</a>
+<a href="/books">View All Books</a>
 <% } else { %>
 <h1>Welcome to the app, guest.</h1>
-<p>
-  <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">sign in</a>.
-</p>
+
+<div class="sign">
+ <a href="/auth/sign-up"><button>Sign up</button></a>
+ <a href="/auth/sign-in"> <button>sign in</button> </a>
+</div>
 <% } %>
 </body>
 </html>

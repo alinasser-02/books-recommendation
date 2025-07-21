@@ -21,4 +21,13 @@ img{
 
 a{
   text-decoration: none;
+  color: black
+}
+
+.sign , button
+{
+width: 400px;
+align-items: center;
+text-align: center;
+margin: 10px,auto;
 }
