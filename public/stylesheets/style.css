@@ -1,33 +1,46 @@
-.container
-{
+body {
+  font-family: 'Times New Roman', Times, serif;}
+
+form {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.welcome {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   flex-direction: column;
-  padding-top: 20px;
- margin-top:20px;
+  align-items: center;
 }
 
-.container ul,li{
-
-  list-style: none;
-  text-decoration: none;
-}
-img{
-  max-width: 200px;
-  margin: 20px
+.welcome a {
+  height: 50px;
+  width: 400px;
 }
 
-a{
-  text-decoration: none;
-  color: black
+.methods {
+  margin-bottom: 20px;
 }
 
-.sign , button
-{
-width: 400px;
-align-items: center;
-text-align: center;
-margin: 10px,auto;
+.img-fluid {
+  display: flex;
+  width: 300px;
+  border-radius: 2px 4px 4px 2px;
+  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
 }
+
+img {
+  max-width: 240px;
+  margin: auto;
+  padding-top: 10px;
+  border-radius: 4%;
+  box-shadow: 13px 13px 8px 10px rgba(184, 183, 184, 0.611);
+}
+
+.container h1 {
+
+  text-align: center;
+}
+

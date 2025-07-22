@@ -1,43 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    /> -->
-    
-<link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
-
-    <link rel="stylesheet" href="../stylesheets/style.css" />
-
-
-    
-    <title>A</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>All Books</h1>
-      <a href="/auth/sign-out">Sign out</a>
-      <a href="/books/new">Add a Book</a>
-
-      <ul>
-        <% foundBooks.forEach((book) => { %>
-        <li>
-         <strong>Book title:</strong> <br>
-         <a href="/books/<%= book._id %>">  <%= book.title %></a>
-          <br />
-          <img src="<%= book.image %>" />
-          <br />
-          <strong>Category:</strong> <%= book.category %>
-          <br />
-          <strong>Description:</strong><%=book.description %>
-          <br />
-        </li>
-        <% }) %>
-      </ul>
-    </div>
-  </body>
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+<div class="container mt-5">
+  <h1>All Books</h1>
+  <a href="/books/new" class="btn btn-success mb-3">Add a Book</a>
+  <div class="row">
+    <% foundBooks.forEach(book => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="<%= book.image %>" class="card-img-top" alt="Book image">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/books/<%= book._id %>"><%= book.title %></a></h5>
+            <p class="card-text"><strong>Category:</strong> <%= book.category %></p>
+            <p class="card-text"><%= book.description %></p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+</body>
 </html>

@@ -3,6 +3,8 @@ const router = express.Router();
 const Book = require("../models/book");
 const isSignedIn = require("../middleware/is-signed-in");
 
+
+
 router.get("/new", isSignedIn, (req, res) => {
   res.render("books/new.ejs");
 });

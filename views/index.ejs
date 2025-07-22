@@ -1,20 +1,15 @@
-
 <%- include('./partials/head') %>
 <%- include('./partials/nav') %>
-
-<div class="welcome-div">
-<% if (user) { %>
-<h1>Welcome to the app, <%= user.username %>!</h1>
-<a href="/auth/sign-out">Sign out</a>
-<a href="/books">View All Books</a>
-<% } else { %>
-<h1>Welcome to the app, guest.</h1>
-
-<div class="sign">
- <a href="/auth/sign-up"><button>Sign up</button></a>
- <a href="/auth/sign-in"> <button>sign in</button> </a>
+<div class="container mt-5">
+  <div class="welcome">
+  <% if (user) { %>
+    <h1>Welcome, <%= user.username %>!</h1>
+    <a href="/books" class="btn btn-primary me-2 mt-3">View All Books</a>
+  <% } else { %>
+    <h1>Welcome, guest.</h1>
+    <a href="/auth/sign-up" class="btn btn-primary me-2 mt-3">Sign Up</a>
+    <a href="/auth/sign-in" class="btn btn-primary me-2 mt-3">Sign In</a>
+  <% } %>
+  </div>
 </div>
-<% } %>
-</div>
-</body>
-</html>
+</body></html>

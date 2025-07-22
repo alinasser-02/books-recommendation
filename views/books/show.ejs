@@ -1,48 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    /> -->
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/simpledotcss/simple.min.css"
-    />
-
-    <link rel="stylesheet" href="../stylesheets/style.css" />
-
-    <title>Book Page</title>
-  </head>
-  <body>
-    <div class="container">
-      <strong>Book title:</strong>
-      <%= foundBook.title %>
-      <img src="<%= foundBook.image %>" />
-      <strong>Category:</strong> <%= foundBook.category %>
-      <br />
-      <br />
-      <strong>Description:</strong>
-      <p><%=foundBook.description %></p>
-      <div class="actions">
-        <form
-          class="delete-form"
-          action="/books/<%=foundBook._id%>?_method=DELETE"
-          method="POST"
-        >
-          <button type="submit">
-            Delete <%=foundBook.title %>
-          </button>
-        </form>
-        <a class="edit-link" href="/books/<%= foundBook._id %>/edit"><button>
-        <div class="edit-text">Edit <%= foundBook.title %></button></div>
-    </a></button>
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+<div class="container mt-5">
+  <h1><%= foundBook.title %></h1>
+  <img src="<%= foundBook.image %>" class="img-fluid mb-3" alt="Book image">
+  <p><strong>Category:</strong> <%= foundBook.category %></p>
+  <p><strong>Description:</strong> <%= foundBook.description %></p>
+<div class="methods">
+  <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST" class="d-inline">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+  <a href="/books/<%= foundBook._id %>/edit" class="btn btn-warning">Edit</a>
+  <a href="/books" class="btn btn-secondary">Back</a>
 </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div>
+</body></html>
