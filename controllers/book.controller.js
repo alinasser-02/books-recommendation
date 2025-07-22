@@ -9,7 +9,7 @@ router.get("/new", isSignedIn, (req, res) => {
 
 router.post("/", isSignedIn, async (req, res) => {
   try {
-    req.body.user = req.session.user._id;
+    req.body.recommender = req.session.user._id;
     await Book.create(req.body);
     res.redirect("/books");
   } catch (error) {
@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:bookId", async (req, res) => {
   try {
-    const foundBook = await Book.findById(req.params.bookId).populate("user");
+    const foundBook = await Book.findById(req.params.bookId).populate("recommender");
     res.render("books/show.ejs", { foundBook: foundBook });
   } catch (error) {
     console.log(error);
@@ -35,8 +35,8 @@ router.get("/:bookId", async (req, res) => {
 });
 
 router.delete("/:bookId", isSignedIn, async (req, res) => {
-  const foundBook = await Book.findById(req.params.bookId).populate("user");
-  if (foundBook.user._id.equals(req.session.user._id)) {
+  const foundBook = await Book.findById(req.params.bookId).populate("recommender");
+  if (foundBook.recommender._id.equals(req.session.user._id)) {
     await foundBook.deleteOne();
     return res.redirect("/books");
   }
@@ -44,12 +44,17 @@ router.delete("/:bookId", isSignedIn, async (req, res) => {
 });
 
 router.get("/:bookId/edit", isSignedIn, async (req, res) => {
-  const foundBook = await Book.findById(req.params.bookId).populate("user");
-  if(foundBook.user._id.equals(req.session.user._id))
+  const foundBook = await Book.findById(req.params.bookId).populate("recommender");
+  if(foundBook.recommender._id.equals(req.session.user._id))
   {
     return res.render('books/edit.ejs', {foundBook})
   }
      res.send("only owner can edit this book");
 });
 
-module.exports = router;
+
+router.put('/:bookId', async (req,res)=>{
+await Book.findByIdAndUpdate(req.params.bookId, req.body)
+res.redirect(`/books/${req.params.bookId}`)
+})
+module.exports = router

@@ -19,7 +19,7 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    user: {
+    recommender: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
