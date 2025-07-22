@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<%- include('./partials/head') %>
+<%- include('./partials/nav') %>
 
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    /> -->
-    
-<link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
-
-    <link rel="stylesheet" href="../stylesheets/style.css" />
-
-    <title><%= title %></title>
-</head>
-<body>
+<div class="welcome-div">
 <% if (user) { %>
 <h1>Welcome to the app, <%= user.username %>!</h1>
 <a href="/auth/sign-out">Sign out</a>
@@ -29,5 +15,6 @@
  <a href="/auth/sign-in"> <button>sign in</button> </a>
 </div>
 <% } %>
+</div>
 </body>
 </html>
