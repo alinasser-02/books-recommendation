@@ -137,7 +137,7 @@ img {
   transform: perspective(1000px) rotateY(-17deg);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   box-shadow:
-  -7px 15px 23px rgba(57, 40, 4, 0.889);  
+  -7px 5px 13px rgba(80, 62, 16, 0.775);  
 }
 img:hover {
   transform: perspective(800px) rotateY(0deg) scale(1.02);
