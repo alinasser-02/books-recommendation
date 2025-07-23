@@ -1,12 +1,64 @@
 body {
-  font-family: 'Times New Roman', Times, serif;}
+  background: url('/assets/opend-book2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-family: 'Lora', serif;
+  padding-bottom: 30px;
+}
+
+.container {
+  background-color: rgba(23, 23, 23, 0.442);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.78);
+}
+
+
+.card {
+  background-color: #0404044a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.card:hover , img:hover {
+  transform:scale(1.05);
+}
+
+
+h1, h2, h5 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.welcome {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.methods button,
+.methods a {
+  margin-right: 10px;
+}
+
 
 form {
-  margin-bottom: 20px;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1f190251;
+  border-radius: 8px;
+  box-shadow: -5px 8px 20px rgba(5, 39, 87, 0.666);
+  text-align: center;
 }
+
 
 a {
   text-decoration: none;
+}
+p{
+  padding-top: 5px;
+  color: white;
 }
 
 .welcome {
@@ -24,19 +76,23 @@ a {
   margin-bottom: 20px;
 }
 
-.img-fluid {
+.img-fluid,img {
   display: flex;
   width: 300px;
   border-radius: 2px 4px 4px 2px;
-  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
+  box-shadow: 13px 13px 8px 0px rgba(63, 54, 14, 0.398);
+transform: perspective(1000px) rotateY(-12deg);
+  transition: transform 0.3s ease;
 }
 
+.book-img:hover {
+  transform: perspective(2000px) rotateY(0deg) scale(1.5);
+}
 img {
   max-width: 240px;
   margin: auto;
   padding-top: 10px;
   border-radius: 4%;
-  box-shadow: 13px 13px 8px 10px rgba(184, 183, 184, 0.611);
 }
 
 .container h1 {
@@ -44,3 +100,80 @@ img {
   text-align: center;
 }
 
+.add-book
+{
+text-align: center;
+  padding: 20px;
+}
+
+.custom-navbar {
+  background: rgba(15, 15, 15, 0.773);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.nav-link,
+.navbar-brand
+ {
+  color: #ffffff !important;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover,
+.navbar-brand:hover
+{
+  color: #dbdbdb !important;
+  font-weight: bolder;
+}
+
+.show-book
+{
+ background: rgba(15, 15, 15, 0.67);
+margin-top: 0;
+
+}
+
+img {
+  transform: perspective(1000px) rotateY(-17deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow:
+  -7px 15px 23px rgba(57, 40, 4, 0.889);  
+}
+img:hover {
+  transform: perspective(800px) rotateY(0deg) scale(1.02);
+}
+
+
+
+form input.form-control,
+form textarea.form-control {
+  background-color: rgba(254, 254, 254, 0.085);
+  color: #f6f6f6; 
+  border: 1px solid #ffffff; 
+}
+
+#view-all {
+  max-width: 300px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-success {
+  background-color: #3d2a0bae !important; 
+  border-color: #ebebeb !important;   
+  color: white !important;    
+  border-color: rgb(255, 255, 255) !important;
+  margin-bottom: 10px;
+  align-items: center; 
+  justify-content: center;
+    max-width: 300px;
+
+}
+
+.btn-success:hover
+{
+  background-color: #312603e2 !important; 
+  transform: scale(1.05);
+}

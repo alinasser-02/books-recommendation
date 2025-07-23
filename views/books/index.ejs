@@ -1,19 +1,20 @@
 <%- include('../partials/head') %>
 <%- include('../partials/nav') %>
-<div class="container mt-5">
+<div class="container mt-5 ">
   <h1>All Books</h1>
-  <a href="/books/new" class="btn btn-success mb-3">Add a Book</a>
+  <div class="add-book">
+  <a href="/books/new" class="btn btn-success">Add a Book</a></div>
   <div class="row">
     <% foundBooks.forEach(book => { %>
       <div class="col-md-4 mb-4">
-        <div class="card h-100">
+        <a href="/books/<%= book._id %>">
+        <div class="card ">
           <img src="<%= book.image %>" class="card-img-top" alt="Book image">
           <div class="card-body">
-            <h5 class="card-title"><a href="/books/<%= book._id %>"><%= book.title %></a></h5>
+            <h5 class="card-title"><%= book.title %></h5>
             <p class="card-text"><strong>Category:</strong> <%= book.category %></p>
-            <p class="card-text"><%= book.description %></p>
           </div>
-        </div>
+        </div></a>
       </div>
     <% }) %>
   </div>

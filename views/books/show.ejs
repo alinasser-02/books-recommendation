@@ -1,6 +1,6 @@
 <%- include('../partials/head') %>
 <%- include('../partials/nav') %>
-<div class="container mt-5">
+<div class="container mt-5 show-book">
   <h1><%= foundBook.title %></h1>
   <img src="<%= foundBook.image %>" class="img-fluid mb-3" alt="Book image">
   <p><strong>Category:</strong> <%= foundBook.category %></p>
@@ -12,5 +12,11 @@
   <a href="/books/<%= foundBook._id %>/edit" class="btn btn-warning">Edit</a>
   <a href="/books" class="btn btn-secondary">Back</a>
 </div>
+<% if (user) { %>
+  <form action="/books/<%= foundBook._id %>/wishlist" method="POST" class="mt-3">
+    <button class="btn btn-success">📖 Add to readList</button>
+  </form>
+<% } %>
+
 </div>
 </body></html>

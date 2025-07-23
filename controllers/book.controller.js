@@ -4,7 +4,6 @@ const Book = require("../models/book");
 const isSignedIn = require("../middleware/is-signed-in");
 
 
-
 router.get("/new", isSignedIn, (req, res) => {
   res.render("books/new.ejs");
 });
@@ -23,8 +22,12 @@ router.post("/", isSignedIn, async (req, res) => {
 router.get("/", async (req, res) => {
   const foundBooks = await Book.find();
   res.render("books/index.ejs", { foundBooks });
-  console.log(req.body);
+  console.log(foundBooks);
 });
+
+router.get('/readlist', async (req,res)=>{
+res.render('books/readlist.ejs')
+})
 
 router.get("/:bookId", async (req, res) => {
   try {
@@ -55,8 +58,11 @@ router.get("/:bookId/edit", isSignedIn, async (req, res) => {
 });
 
 
-router.put('/:bookId', async (req,res)=>{
-await Book.findByIdAndUpdate(req.params.bookId, req.body)
-res.redirect(`/books/${req.params.bookId}`)
-})
+
+//
+//
+//
+// 
+
+
 module.exports = router
