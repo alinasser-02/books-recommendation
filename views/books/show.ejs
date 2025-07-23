@@ -1,22 +1,25 @@
 <%- include('../partials/head') %>
 <%- include('../partials/nav') %>
+
 <div class="container mt-5 show-book">
   <h1><%= foundBook.title %></h1>
   <img src="<%= foundBook.image %>" class="img-fluid mb-3" alt="Book image">
   <p><strong>Category:</strong> <%= foundBook.category %></p>
   <p><strong>Description:</strong> <%= foundBook.description %></p>
-<div class="methods">
-  <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST" class="d-inline">
-    <button type="submit" class="btn btn-danger">Delete</button>
-  </form>
-  <a href="/books/<%= foundBook._id %>/edit" class="btn btn-warning">Edit</a>
+
+  <% if (user) { %>
+    <div class="methods">
+      <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST" class="d-inline">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+      <a href="/books/<%= foundBook._id %>/edit" class="btn btn-warning">Edit</a>
+      <form action="/books/<%= foundBook._id %>/readlist" method="POST">
+        <button class="btn btn-success mt-3">Add to Readlist</button>
+      </form>
+    </div>
+  <% } %>
+
   <a href="/books" class="btn btn-secondary">Back</a>
 </div>
-<% if (user) { %>
-  <form action="/books/<%= foundBook._id %>/wishlist" method="POST" class="mt-3">
-    <button class="btn btn-success">📖 Add to readList</button>
-  </form>
-<% } %>
-
-</div>
-</body></html>
+</body>
+</html>

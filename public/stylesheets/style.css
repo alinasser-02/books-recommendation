@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  background-color: rgba(23, 23, 23, 0.442);
+  background-color: rgba(0, 0, 0, 0.522);
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.78);
@@ -42,7 +42,7 @@ h1, h2, h5 {
 }
 
 
-form {
+.form {
   width: 500px;
   margin: auto;
   padding: 20px;
@@ -79,20 +79,33 @@ p{
 .img-fluid,img {
   display: flex;
   width: 300px;
-  border-radius: 2px 4px 4px 2px;
-  box-shadow: 13px 13px 8px 0px rgba(63, 54, 14, 0.398);
-transform: perspective(1000px) rotateY(-12deg);
-  transition: transform 0.3s ease;
+  box-shadow: 
+    13px 13px 8px 0px rgba(34, 10, 1, 0.303),
+    inset -5px 0 8px -5px rgba(0,0,0,0.2);
+  transform: 
+    perspective(1000px) 
+    rotateY(-12deg)
+    rotateZ(1deg);
+  transition: 
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  object-fit: cover;
 }
 
 .book-img:hover {
-  transform: perspective(2000px) rotateY(0deg) scale(1.5);
+  transform: 
+    perspective(2000px) 
+    rotateY(0deg) 
+    translateZ(20px);
+  box-shadow: 
+    15px 15px 12px 0px rgba(60, 62, 2, 0.35),
+    inset -8px 0 12px -5px rgba(0,0,0,0.3);
 }
 img {
   max-width: 240px;
   margin: auto;
   padding-top: 10px;
-  border-radius: 4%;
+  margin-top: 10px;
 }
 
 .container h1 {
@@ -137,7 +150,7 @@ img {
   transform: perspective(1000px) rotateY(-17deg);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   box-shadow:
-  -7px 5px 13px rgba(80, 62, 16, 0.775);  
+  -7px 5px 13px rgba(35, 8, 2, 0.711)
 }
 img:hover {
   transform: perspective(800px) rotateY(0deg) scale(1.02);
@@ -159,21 +172,29 @@ form textarea.form-control {
   justify-content: center;
   margin-top: 10px;
 }
+#sign-up-button , #sign-in-button{
+    max-width: 300px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 10px;
+}
 
 .btn-success {
-  background-color: #3d2a0bae !important; 
+  background-color: #030321c1 !important; 
   border-color: #ebebeb !important;   
   color: white !important;    
   border-color: rgb(255, 255, 255) !important;
   margin-bottom: 10px;
   align-items: center; 
   justify-content: center;
-    max-width: 300px;
+    max-width: 400px;
 
 }
 
 .btn-success:hover
 {
-  background-color: #312603e2 !important; 
+  background-color: #010113f9 !important; 
   transform: scale(1.05);
 }
+

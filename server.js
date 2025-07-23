@@ -12,13 +12,11 @@ const isSignedIn = require('./middleware/is-signed-in')
 const passUserToView = require('./middleware/pass-user-to-view')
 const bookController = require('./controllers/book.controller')
 
-// DATABASE CONNECTION
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name} 🙃.`)
 })
 
-// MIDDLEWARE
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
@@ -35,10 +33,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(passUserToView)
 
 app.get('/', async (req, res) => {
-    res.render('index.ejs', { title: 'my App'})
+    res.render('index.ejs')
 })
 
-// ROUTES
 app.use('/auth', authController)
 app.use('/books',bookController)
 app.get('/vip-lounge', isSignedIn, (req, res) => {
